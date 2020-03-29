@@ -1,13 +1,9 @@
 #include <QDebug>
-#include <QPushButton>
-#include <QScrollArea>
 #include "emojikeyboard.h"
 #include "emoji.h"
 
 EmojiKeyboard::EmojiKeyboard() :
     QWidget(nullptr) {
-    QString str = "";
-
     QVector <Emoji*> emojis;
     for(unsigned char i = 0x81; i < 0xC0; ++i) {
         char a[5] = {};
@@ -42,6 +38,5 @@ EmojiKeyboard::EmojiKeyboard() :
         this->layout.addLayout(row);
     }
 
-    this->label.setText(str);
     this->setLayout(&this->layout);
 }
