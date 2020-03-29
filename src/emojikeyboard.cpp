@@ -6,6 +6,8 @@
 
 EmojiKeyboard::EmojiKeyboard() :
     QWidget(nullptr) {
+    QString str = "";
+
     QVector <Emoji*> emojis;
     for(unsigned char i = 0x81; i < 0xBF; ++i) {
         char a[5] = {};
