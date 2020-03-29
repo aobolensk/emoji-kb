@@ -6,7 +6,7 @@
 class EmojiKeyboard : public QWidget {
 private:
     QLabel label;
-    QHBoxLayout layout;
+    QVBoxLayout layout;
 public:
     EmojiKeyboard();
 };

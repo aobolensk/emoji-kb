@@ -1,4 +1,5 @@
 #include <QApplication>
+#include <QScrollArea>
 #include "emojikeyboard.h"
 
 int main(int argc, char *argv[]) {
@@ -6,7 +7,12 @@ int main(int argc, char *argv[]) {
     QFont f = app.font();
     f.setPointSize(32);
     app.setFont(f);
+    QScrollArea scroll;
     EmojiKeyboard e;
-    e.show();
+    scroll.setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    scroll.setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
+    scroll.setWidgetResizable(true);
+    scroll.setWidget(&e);
+    scroll.show();
     return app.exec();
 }
