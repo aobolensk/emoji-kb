@@ -2,12 +2,7 @@
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QWidget>
-
-class Emoji {
-private:
-    QLabel text;
-    
-};
+#include "emoji.h"
 
 class EmojiKeyboard : public QWidget {
 private:
@@ -17,17 +12,15 @@ public:
     EmojiKeyboard(QWidget *parent) :
         QWidget(parent) {
         QString str = "";
-        for(unsigned char i = 0x81; i < 0xBF; ++i) {
-            if (!(i & 0x0F)) {
-                str += '\n';
-            }
-            char a[100] = {};
-            snprintf(a, 100, "\xF0\x9F\x98%c", i);
-            str += a;
+        int index = 0;
+        QVector <Emoji*> e;
+        for(unsigned char i = 0x81; i < 0x8F; ++i) {
+            char a[5] = {};
+            snprintf(a, 5, "\xF0\x9F\x98%c", i);
+            e.push_back(new Emoji(a));
+            this->layout.addWidget(e.back());
         }
-        printf("%d\n", str.size());
         this->label.setText(str);
-        this->layout.addWidget(&this->label);
         this->setLayout(&this->layout);
     }
 };
