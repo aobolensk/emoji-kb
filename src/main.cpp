@@ -3,6 +3,12 @@
 #include <QLabel>
 #include <QWidget>
 
+class Emoji {
+private:
+    QLabel text;
+    
+};
+
 class EmojiKeyboard : public QWidget {
 private:
     QLabel label;

@@ -16,5 +16,5 @@ endif()
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets Test)
 
-add_executable(${PROJECT_NAME} main.cpp)
+add_executable(${PROJECT_NAME} src/main.cpp)
 qt5_use_modules(${PROJECT_NAME} Widgets)
