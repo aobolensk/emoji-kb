@@ -33,9 +33,10 @@ EmojiKeyboard::EmojiKeyboard() :
             emojis.push_back(new Emoji(a));
         }
     }
-    for (int r = 0; r < (emojis.size() + 15) / 16; ++r) {
+    const int ROW_COUNT = 16;
+    for (int r = 0; r < (emojis.size() + ROW_COUNT - 1) / ROW_COUNT; ++r) {
         QHBoxLayout *row = new QHBoxLayout(nullptr);
-        for (int i = r * 16; i < qMin(emojis.size(), (r + 1) * 16); ++i) {
+        for (int i = r * ROW_COUNT; i < qMin(emojis.size(), (r + 1) * ROW_COUNT); ++i) {
             row->addWidget(emojis[i]);
         }
         this->layout.addLayout(row);

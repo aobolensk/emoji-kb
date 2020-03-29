@@ -5,7 +5,7 @@
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     QFont f = app.font();
-    f.setPointSize(32);
+    f.setPointSize(24);
     app.setFont(f);
     QScrollArea scroll;
     EmojiKeyboard e;
