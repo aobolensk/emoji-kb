@@ -1,3 +1,5 @@
+#include <QApplication>
+#include <QClipboard>
 #include <QDebug>
 #include "emoji.h"
 
@@ -9,5 +11,7 @@ Emoji::Emoji(const QString &emoji) {
 }
 
 void Emoji::mousePressEvent(QMouseEvent* event) {
+    QClipboard *clipboard = QApplication::clipboard();
+    clipboard->setText(this->text());
     qDebug() << this;
 }
