@@ -3,11 +3,24 @@
 #include <QVBoxLayout>
 #include <QWidget>
 
+#define TABS                                    \
+    X(Emoticons)                                \
+    X(Other)                                    \
+    X(Invalid)
+
+#define X(name) name,
+enum class EmojiTab {
+    TABS
+};
+#undef X
+
+extern QString emojiTabName[];
+
 class EmojiKeyboard : public QWidget {
 private:
     QVBoxLayout layout;
 public:
-    EmojiKeyboard();
+    EmojiKeyboard(EmojiTab tab);
 };
 
 #endif // EMOJIKEYBOARD_H_
