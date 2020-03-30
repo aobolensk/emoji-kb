@@ -1,11 +1,12 @@
 #include <QApplication>
 #include <QScrollArea>
+#include <QTabWidget>
 #include "emojikeyboard.h"
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
     QFont f = app.font();
-    f.setPointSize(24);
+    f.setPointSize(18);
     app.setFont(f);
     QScrollArea scroll;
     EmojiKeyboard e;
@@ -13,6 +14,8 @@ int main(int argc, char *argv[]) {
     scroll.setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
     scroll.setWidgetResizable(true);
     scroll.setWidget(&e);
-    scroll.show();
+    QTabWidget tabs;
+    tabs.addTab(&e, "Main tab");
+    tabs.show();
     return app.exec();
 }
