@@ -14,9 +14,9 @@ int main(int argc, char *argv[]) {
         QScrollArea *scroll = new QScrollArea;
         scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
-        scroll->setWidgetResizable(true);
+        scroll->setWidgetResizable(false);
         scroll->setWidget(e);
-        tabs.addTab(e, emojiTabName[tab]);
+        tabs.addTab(scroll, emojiTabName[tab]);
     }
     tabs.show();
     return app.exec();
