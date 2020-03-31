@@ -8,10 +8,10 @@ QString emojiTabName[] = {
 };
 #undef X
 
-EmojiKeyboard::EmojiKeyboard(EmojiTab tabs) :
+EmojiKeyboard::EmojiKeyboard(EmojiTab tab) :
     QWidget(nullptr) {
     QVector <Emoji*> emojis;
-    switch (tabs) {
+    switch (tab) {
     case EmojiTab::Emoticons: {
         for(unsigned char i = 0x81; i < 0xC0; ++i) {
             char a[5] = {};
@@ -40,6 +40,7 @@ EmojiKeyboard::EmojiKeyboard(EmojiTab tabs) :
             }
         }
     } break;
+    case EmojiTab::Invalid: break;
     }
     const int ROW_COUNT = 16;
     for (int r = 0; r < (emojis.size() + ROW_COUNT - 1) / ROW_COUNT; ++r) {

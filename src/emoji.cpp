@@ -11,6 +11,7 @@ Emoji::Emoji(const QString &emoji) {
 }
 
 void Emoji::mousePressEvent(QMouseEvent* event) {
+    (void) event;
     QClipboard *clipboard = QApplication::clipboard();
     clipboard->setText(this->text());
     qDebug() << this;
