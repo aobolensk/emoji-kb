@@ -23,3 +23,10 @@ add_executable(${PROJECT_NAME}
     src/main.cpp
 )
 qt5_use_modules(${PROJECT_NAME} Widgets)
+
+set(CMAKE_CXX_STANDARD 17)
+if (MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /W4 /WX /O2")
+else(MSVC)
+    set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -O3 -Wall -Wextra -Werror -pedantic -Wconversion")
+endif(MSVC)
