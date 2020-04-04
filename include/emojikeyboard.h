@@ -5,6 +5,7 @@
 
 #define TABS                                    \
     X(Emoticons)                                \
+    X(Characters)                               \
     X(Other)                                    \
     X(Invalid)
 

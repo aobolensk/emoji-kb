@@ -24,6 +24,13 @@ EmojiKeyboard::EmojiKeyboard(EmojiTab tab) :
             emojis.push_back(new Emoji(a));
         }
     } break;
+        case EmojiTab::Characters: {
+        for(unsigned char i = 0xA6; i < 0xC0; ++i) {
+            char a[5] = {};
+            snprintf(a, 5, "\xF0\x9F\x87%c", i);
+            emojis.push_back(new Emoji(a));
+        }
+    } break;
     case EmojiTab::Other: {
         for(unsigned char i = 0x9A; i < 0x9B; ++i) {
             for(unsigned char j = 0x81; j < 0xC0; ++j) {
