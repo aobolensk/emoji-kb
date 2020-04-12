@@ -9,7 +9,7 @@ QString emojiTabName[] = {
 #undef X
 
 // Source: https://en.wikipedia.org/wiki/ISO_3166-1
-static QVector <const char *> flags = {
+static QVector <const char *> flags_list = {
     "AD", "AE", "AF", "AG", "AI", "AL", "AM", "AO", "AQ", "AR", "AS", "AT", "AU", "AW", "AX", "AZ",
     "BA", "BB", "BD", "BE", "BF", "BG", "BH", "BI", "BJ", "BL", "BM", "BN", "BO", "BQ", "BQ", "BR",
     "BS", "BT", "BV", "BW", "BY", "BZ", "CA", "CC", "CD", "CF", "CG", "CH", "CI", "CK", "CL", "CM",
@@ -73,8 +73,8 @@ EmojiKeyboard::EmojiKeyboard(EmojiTab tab) :
         }
     } break;
     case EmojiTab::Flags: {
-        for (int i = 0; i < flags.size(); ++i) {
-            emojis.push_back(new Emoji(alpha[flags[i][0] - 'A'] + alpha[flags[i][1] - 'A']));
+        for (int i = 0; i < flags_list.size(); ++i) {
+            emojis.push_back(new Emoji(alpha[flags_list[i][0] - 'A'] + alpha[flags_list[i][1] - 'A']));
         }
     } break;
     case EmojiTab::Other: {
