@@ -13,54 +13,54 @@ EmojiKeyboard::EmojiKeyboard(EmojiTab tab) :
     QVector <Emoji*> emojis;
     switch (tab) {
     case EmojiTab::Emoticons: {
-        for(unsigned char i = 0x81; i < 0xC0; ++i) {
+        for(uint8_t i = 0x81; i < 0xC0; ++i) {
             char a[5] = {};
             snprintf(a, 5, "\xF0\x9F\x98%c", i);
             emojis.push_back(new Emoji(a));
         }
-        for(unsigned char i = 0x81; i < 0x90; ++i) {
+        for(uint8_t i = 0x81; i < 0x90; ++i) {
             char a[5] = {};
             snprintf(a, 5, "\xF0\x9F\x99%c", i);
             emojis.push_back(new Emoji(a));
         }
-        for(unsigned char i = 0x91; i < 0xB0; ++i) {
+        for(uint8_t i = 0x91; i < 0xB0; ++i) {
             char a[5] = {};
             snprintf(a, 5, "\xF0\x9F\xA4%c", i);
             emojis.push_back(new Emoji(a));
         }
-        for(unsigned char i : std::initializer_list<unsigned char>({0xB0, 0xB3, 0xB4, 0xB5, 0xB6, 0xBA})) {
+        for(uint8_t i : std::initializer_list<uint8_t>({0xB0, 0xB3, 0xB4, 0xB5, 0xB6, 0xBA})) {
             char a[5] = {};
             snprintf(a, 5, "\xF0\x9F\xA5%c", i);
             emojis.push_back(new Emoji(a));
         }
     } break;
     case EmojiTab::Characters: {
-        for(unsigned char i = 0xA6; i < 0xC0; ++i) {
+        for(uint8_t i = 0xA6; i < 0xC0; ++i) {
             char a[5] = {};
             snprintf(a, 5, "\xF0\x9F\x87%c", i);
             emojis.push_back(new Emoji(a));
         }
-        for(unsigned char i = 0x91; i < 0x9B; ++i) {
+        for(uint8_t i = 0x91; i < 0x9B; ++i) {
             char a[5] = {};
             snprintf(a, 5, "\xF0\x9F\x86%c", i);
             emojis.push_back(new Emoji(a));
         }
     } break;
     case EmojiTab::Other: {
-        for(unsigned char i = 0x9A; i < 0x9B; ++i) {
-            for(unsigned char j = 0x81; j < 0xC0; ++j) {
+        for(uint8_t i = 0x9A; i < 0x9B; ++i) {
+            for(uint8_t j = 0x81; j < 0xC0; ++j) {
                 char a[5] = {};
                 snprintf(a, 5, "\xF0\x9F%c%c", i, j);
                 emojis.push_back(new Emoji(a));
             }
         }
-        for(unsigned char i = 0x91; i < 0xC0; ++i) {
+        for(uint8_t i = 0x91; i < 0xB0; ++i) {
             char a[5] = {};
             snprintf(a, 5, "\xF0\x9F\xA5%c", i);
             emojis.push_back(new Emoji(a));
         }
-        for(unsigned char i = 0x8C; i < 0x8F; ++i) {
-            for(unsigned char j = 0x81; j < 0xC0; ++j) {
+        for(uint8_t i = 0x8C; i < 0x8F; ++i) {
+            for(uint8_t j = 0x81; j < 0xC0; ++j) {
                 char a[5] = {};
                 snprintf(a, 5, "\xF0\x9F%c%c", i, j);
                 emojis.push_back(new Emoji(a));
