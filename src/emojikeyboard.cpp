@@ -23,6 +23,11 @@ EmojiKeyboard::EmojiKeyboard(EmojiTab tab) :
             snprintf(a, 5, "\xF0\x9F\x99%c", i);
             emojis.push_back(new Emoji(a));
         }
+        for(unsigned char i = 0x91; i < 0xB0; ++i) {
+            char a[5] = {};
+            snprintf(a, 5, "\xF0\x9F\xA4%c", i);
+            emojis.push_back(new Emoji(a));
+        }
     } break;
         case EmojiTab::Characters: {
         for(unsigned char i = 0xA6; i < 0xC0; ++i) {
