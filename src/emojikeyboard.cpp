@@ -11,6 +11,12 @@ QString emojiTabName[] = {
 EmojiKeyboard::EmojiKeyboard(EmojiTab tab) :
     QWidget(nullptr) {
     QVector <Emoji*> emojis;
+    QVector <QString> alpha(26);
+    for(uint8_t i = 0xA6, index = 0; i < 0xC0; ++i, ++index) {
+        char a[5] = {};
+        snprintf(a, 5, "\xF0\x9F\x87%c", i);
+        alpha[index] = a;
+    }
     switch (tab) {
     case EmojiTab::Emoticons: {
         for(uint8_t i = 0x81; i < 0xC0; ++i) {
