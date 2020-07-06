@@ -2,27 +2,12 @@
 #define EMOJIKEYBOARD_H_
 #include <QVBoxLayout>
 #include <QWidget>
-
-#define TABS                                    \
-    X(Emoticons)                                \
-    X(Characters)                               \
-    X(Flags)                                    \
-    X(Other)                                    \
-    X(Invalid)
-
-#define X(name) name,
-enum class EmojiTab {
-    TABS
-};
-#undef X
-
-extern QString emojiTabName[];
+#include "emojireader.h"
 
 class EmojiKeyboard : public QWidget {
-private:
     QVBoxLayout layout;
 public:
-    EmojiKeyboard(EmojiTab tab);
+    EmojiKeyboard(const EmojiGroup &emojis);
 };
 
 #endif // EMOJIKEYBOARD_H_

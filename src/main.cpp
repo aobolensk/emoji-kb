@@ -2,6 +2,7 @@
 #include <QScrollArea>
 #include <QTabWidget>
 #include "emojikeyboard.h"
+#include "emojireader.h"
 
 int main(int argc, char *argv[]) {
     QApplication app(argc, argv);
@@ -9,14 +10,16 @@ int main(int argc, char *argv[]) {
     f.setPointSize(18);
     app.setFont(f);
     QTabWidget tabs;
-    for (size_t tab = 0; tab != static_cast<int>(EmojiTab::Invalid); ++tab) {
-        EmojiKeyboard *e = new EmojiKeyboard(static_cast<EmojiTab>(tab));
+    QVector <EmojiGroup> emojis;
+    EmojiReader::read("../emoji-test.txt", emojis);
+    for (int tab = 0; tab < emojis.size(); ++tab) {
+        EmojiKeyboard *e = new EmojiKeyboard(emojis[tab]);
         QScrollArea *scroll = new QScrollArea;
         scroll->setHorizontalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         scroll->setVerticalScrollBarPolicy(Qt::ScrollBarAsNeeded);
         scroll->setWidgetResizable(false);
         scroll->setWidget(e);
-        tabs.addTab(scroll, emojiTabName[tab]);
+        tabs.addTab(scroll, emojis[tab].name);
     }
     tabs.show();
     return app.exec();
