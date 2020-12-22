@@ -16,9 +16,9 @@ void EmojiReader::read(const QString &file_path, /*out*/ QVector <EmojiGroup> &e
             if (line.startsWith("# group")) {
                 if (g.name != "") {
                     emojis.push_back(g);
-                    return;
                 }
                 g.name = line.right(line.size() - 9);
+                g.data.clear();
             } else if (!line.startsWith("#")) {
                 int start = line.indexOf('#');
                 if (start != -1) {

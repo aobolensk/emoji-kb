@@ -26,9 +26,8 @@ jobs:
     - name: Setup environment
       run: |
         sudo add-apt-repository ppa:ubuntu-toolchain-r/test
-        sudo add-apt-repository "deb http://apt.llvm.org/bionic/ llvm-toolchain-bionic-9 main"
         sudo apt update
-        sudo apt install clang-9 qt5-default
+        sudo apt install clang-10 qt5-default
     - name: Build application
       run: |
         mkdir build
@@ -36,8 +35,8 @@ jobs:
         cmake ..
         cmake --build . -- -j
       env:
-        CC: clang-9
-        CXX: clang++-9
+        CC: clang-10
+        CXX: clang++-10
   windows-msvc-build:
     runs-on: windows-latest
     strategy:
@@ -56,31 +55,6 @@ jobs:
         cd build
         cmake ..
         cmake --build .
-  windows-mingw-build:
-    runs-on: windows-latest
-    strategy:
-      matrix:
-        qt_version: ['5.14.1']
-    steps:
-    - uses: actions/checkout@v1
-    - name: Install MSYS2
-      uses: numworks/setup-msys2@v1
-    - name: Install gcc
-      run: msys2do pacman -S --noconfirm mingw-w64-x86_64-gcc
-    - name: Install Qt
-      uses: jurplel/install-qt-action@v2
-      with:
-        version: ${{ matrix.qt_version }}
-        arch: win64_mingw73
-    - name: Build application
-      run: |
-        mkdir build
-        cd build
-        cmake .. -G"MSYS Makefiles"
-        cmake --build . -- -j
-      env:
-        CC: gcc
-        CXX: g++
   macOS-gcc-build:
     runs-on: macOS-latest
     steps:
