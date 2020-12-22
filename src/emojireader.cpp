@@ -7,6 +7,7 @@ void EmojiReader::read(const QString &file_path, /*out*/ QVector <EmojiGroup> &e
     QFile file(file_path);
     if (file.open(QIODevice::ReadOnly)) {
         QTextStream in(&file);
+        in.setCodec("UTF-8");
         EmojiGroup g;
         while (!in.atEnd()) {
             QString line = in.readLine();
