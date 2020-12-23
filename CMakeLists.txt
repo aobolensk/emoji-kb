@@ -16,16 +16,19 @@ endif()
 
 find_package(Qt5 REQUIRED COMPONENTS Widgets Test)
 
+file(DOWNLOAD https://unicode.org/Public/emoji/13.0/emoji-test.txt ${CMAKE_SOURCE_DIR}/resources/emoji-test.txt)
+qt5_add_resources(RC_SRC ${CMAKE_SOURCE_DIR}/resources/resources.qrc)
+
 include_directories(include)
 add_executable(${PROJECT_NAME}
     src/emoji.cpp
     src/emojikeyboard.cpp
     src/emojireader.cpp
     src/main.cpp
+    ${RC_SRC}
 )
 qt5_use_modules(${PROJECT_NAME} Widgets)
 
-file(DOWNLOAD https://unicode.org/Public/emoji/13.0/emoji-test.txt ${CMAKE_SOURCE_DIR}/emoji-test.txt)
 
 set(CMAKE_CXX_STANDARD 17)
 if (MSVC)
