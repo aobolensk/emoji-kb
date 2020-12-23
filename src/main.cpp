@@ -11,7 +11,7 @@ int main(int argc, char *argv[]) {
     app.setFont(f);
     QTabWidget tabs;
     QVector <EmojiGroup> emojis;
-    EmojiReader::read("../emoji-test.txt", emojis);
+    EmojiReader::read(":/emoji-test.txt", emojis);
     for (int tab = 0; tab < emojis.size(); ++tab) {
         EmojiKeyboard *e = new EmojiKeyboard(emojis[tab]);
         QScrollArea *scroll = new QScrollArea;
