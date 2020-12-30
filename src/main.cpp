@@ -10,6 +10,10 @@ int main(int argc, char *argv[]) {
     f.setPointSize(18);
     app.setFont(f);
     QTabWidget tabs;
+    tabs.resize(800, 600);
+    QFont font = tabs.font();
+    font.setPointSize(12);
+    tabs.setFont(font);
     QVector <EmojiGroup> emojis;
     EmojiReader::read(":/emoji-test.txt", emojis);
     for (int tab = 0; tab < emojis.size(); ++tab) {

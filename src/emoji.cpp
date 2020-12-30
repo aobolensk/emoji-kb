@@ -8,6 +8,9 @@ Emoji::Emoji(const QString &emoji) {
     this->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     this->adjustSize();
     this->setFixedSize(this->size());
+    QFont font = this->font();
+    font.setPointSize(18);
+    this->setFont(font);
 }
 
 void Emoji::mousePressEvent(QMouseEvent* event) {
