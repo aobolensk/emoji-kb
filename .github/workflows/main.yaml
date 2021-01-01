@@ -110,3 +110,19 @@ jobs:
         cd build
         cmake .. -DCMAKE_PREFIX_PATH=$(brew --prefix qt)/lib/cmake/Qt5
         cmake --build . -- -j
+  FreeBSD-clang-build:
+    runs-on: macOS-latest
+    steps:
+    - uses: actions/checkout@v1
+    - name: Build on FreeBSD
+      id: build
+      uses: vmactions/freebsd-vm@v0.0.9
+      with:
+        usesh: true
+        prepare: pkg install -y cmake qt5 git
+        run: |
+          freebsd-version
+          mkdir build
+          cd build
+          cmake ..
+          cmake --build . -- -j 2
