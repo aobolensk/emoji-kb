@@ -30,6 +30,7 @@ void EmojiReader::read(const QString &file_path, /*out*/ QVector <EmojiGroup> &e
                 }
             }
         }
+        emojis.push_back(g);
         file.close();
     }
 }
