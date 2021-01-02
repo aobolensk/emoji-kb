@@ -25,7 +25,8 @@ void EmojiReader::read(const QString &file_path, /*out*/ QVector <EmojiGroup> &e
                 if (start != -1) {
                     start += 2;
                     int fin = line.indexOf(' ', start);
-                    g.data.push_back(line.mid(start, fin - start));
+                    int start2 = line.indexOf(' ', fin + 1) + 1;
+                    g.data.push_back(new Emoji(line.mid(start, fin - start), line.mid(start2, line.size())));
                 }
             }
         }

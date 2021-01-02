@@ -5,7 +5,7 @@
 class Emoji : public QLabel {
 public:
     Emoji() = delete;
-    Emoji(const QString &emoji);
+    Emoji(const QString &emoji, const QString &tooltip);
     void mousePressEvent(QMouseEvent* event);
 };
 
