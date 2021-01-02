@@ -2,10 +2,11 @@
 #define EMOJIREADER_H_
 #include <QString>
 #include <QVector>
+#include "emoji.h"
 
 struct EmojiGroup {
     QString name;
-    QVector <QString> data;
+    QVector <Emoji *> data;
 };
 
 

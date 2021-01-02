@@ -9,7 +9,7 @@ EmojiKeyboard::EmojiKeyboard(const EmojiGroup &emojis) :
     for (int r = 0; r < (emojis.data.size() + ROW_COUNT - 1) / ROW_COUNT; ++r) {
         QHBoxLayout *row = new QHBoxLayout(nullptr);
         for (int i = r * ROW_COUNT; i < qMin(emojis.data.size(), (r + 1) * ROW_COUNT); ++i) {
-            row->addWidget(new Emoji(emojis.data[i]));
+            row->addWidget(emojis.data[i]);
         }
         this->layout.addLayout(row);
     }
